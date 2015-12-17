@@ -34,6 +34,33 @@ Inspired by [https://github.com/mcfedr/gulp-unused-images](https://github.com/mc
 
 I'm new to writing Gulp plugins, be gentle. If there's anything you find wrong with this, please help.
 
+## Known Issues
+
+- Using an image extension in a CSS class will result in a match and won't delete the image. The same happens using dot notation in JavaScript files
+
+      div.jpg { background-image: url('images/some-image.jpg'); }
+      
+      ---
+      
+      if (myObj.file.images.jpg) {
+        //...
+      }  
+      
+- If multiple image files exists in subfolders that under the root directory, and the name is referenced in the source file. It won't delete any of the named files that match.
+
+      
+      images/filename.jpg
+      images/subfolder/filename.jpg
+      
+      ...
+      
+      <img src="images/subfolder/filename.jpg" alt="Some great file">
+      
+      
+      
+      
+
 ## Release History
 
+* 0.0.2 Patches for regex
 * 0.0.1 Initial release

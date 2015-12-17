@@ -14,8 +14,8 @@ var PLUGIN_NAME = 'gulp-delete-unused-images';
 function deleteUnusedImages(options) {
 
   options = options || {};
-  options.delete = options.delete || true;
-  options.log = options.log || false;
+
+  _.defaults(options, {delete: true, log: false});
 
   var imageNames = [];
   var usedImageNames = [];
@@ -43,7 +43,7 @@ function deleteUnusedImages(options) {
         input: fs.createReadStream(String(chunk.path)),
         terminal: false
       }).on('line', function (line) {
-        var filename = (line.match(/((?:((?:[^\(\\\'\"\r\n\t\f\/ ])*)\.(?:(png|gif|jpe?g|pdf|xml|apng|svg|mng)\b)))/gmi) || []).pop();
+        var filename = (line.match(/((?:((?:[^\(\\\'\"\r\n\t\f\/\s\.])+)\.(?:(png|gif|jpe?g|pdf|xml|apng|svg|mng)\b)))/gmi) || []).pop();
         if (filename) {
           usedImageNames.push(filename);
         }
@@ -76,6 +76,9 @@ function deleteUnusedImages(options) {
 
     if (unusedImages.length) {
       if (options.delete) {
+
+        console.log(unusedImages);
+        
         del(unusedImages).then(paths => {
           if (options.log) {
             console.log('Deleted images:\n', paths.join('\n'));
