@@ -29,7 +29,7 @@ gulp.src(['dev/images/**/*', 'dev/edm.html'])
     log: true,
     delete: true
   }))
-  .pipe(gulp.dest('./deploy')
+  .pipe(gulp.dest('./deploy'));
 ```
 
 ## Contributing
