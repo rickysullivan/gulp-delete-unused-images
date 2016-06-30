@@ -38,7 +38,7 @@ I'm new to writing Gulp plugins, be gentle. If there's anything you find wrong w
 
 ## Known Issues
 
-- Using an image extension in a CSS class will result in a match and won't delete the image. The same happens using dot notation in JavaScript files  
+- Using an image file extension in a CSS class will result in a match and won't delete the image. The same happens using dot notation in JavaScript files  
 
     ```
     div.jpg { background-image: url('images/some-image.jpg'); }
@@ -50,7 +50,7 @@ I'm new to writing Gulp plugins, be gentle. If there's anything you find wrong w
     }
     ```
 
-- If multiple image files exists in subfolders that under the root directory, and the name is referenced in the source file. It won't delete any of the named files that match.  
+- If multiple image files exist in subfolders that are under the root directory and the name is referenced in the source file. It won't delete any of the named files that match.  
 
     ```
     images/filename.jpg
@@ -63,6 +63,7 @@ I'm new to writing Gulp plugins, be gentle. If there's anything you find wrong w
 
 ## Release History
 
+* 0.0.4 Update README
 * 0.0.3 Fix options
 * 0.0.2 Patches for regex
 * 0.0.1 Initial release
