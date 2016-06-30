@@ -63,5 +63,6 @@ I'm new to writing Gulp plugins, be gentle. If there's anything you find wrong w
 
 ## Release History
 
+* 0.0.3 Fix options
 * 0.0.2 Patches for regex
 * 0.0.1 Initial release
