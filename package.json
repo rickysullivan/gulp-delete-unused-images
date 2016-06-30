@@ -1,6 +1,6 @@
 {
   "name": "gulp-delete-unused-images",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Finds unused graphics inside text files (html|css|js) and deletes them.",
   "main": "index.js",
   "scripts": {

@@ -76,15 +76,11 @@ function deleteUnusedImages(options) {
 
     if (unusedImages.length) {
       if (options.delete) {
-
-        console.log(unusedImages);
-        
         del(unusedImages).then(paths => {
-          if (options.log) {
             console.log('Deleted images:\n', paths.join('\n'));
-          }
         });
-      } else {
+      }
+      if (options.log) {
         console.log('Unused images:\n', unusedImages.join('\n'));
       }
     }
