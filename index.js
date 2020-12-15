@@ -43,7 +43,7 @@ function deleteUnusedImages(options) {
         input: fs.createReadStream(String(chunk.path)),
         terminal: false
       }).on('line', function (line) {
-        var filename = (line.match(/((?:((?:[^\(\\\'\"\r\n\t\f\/\s\.])+)\.(?:(png|gif|jpe?g|pdf|xml|apng|svg|mng)\b)))/gmi) || []).pop();
+        var filename = (line.match(/((?:((?:[^\(\\\'\"\r\n\t\f\/\s\.])+)\.(?:(png|gif|jpe?g|pdf|xml|apng|svg|ico|mng)\b)))/gmi) || []).pop();
         if (filename) {
           usedImageNames.push(filename);
         }
@@ -76,7 +76,7 @@ function deleteUnusedImages(options) {
 
     if (unusedImages.length) {
       if (options.delete) {
-        del(unusedImages).then(paths => {
+        del(unusedImages, {force: true}).then(paths => {
             console.log('Deleted images:\n', paths.join('\n'));
         });
       }
